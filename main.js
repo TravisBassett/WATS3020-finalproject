@@ -32,5 +32,5 @@ function searchRequest() {
 // applies event listener on search button after DOM is fully loaded to avoid console
 // error
 window.onload = function () {
-    document.getElementById("searchbtn").addEventListener("click", searchRequest());
+    document.getElementById("searchbtn").addEventListener("click", searchRequest);
 }
