@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Bread of Life Mission",
+        "minage": 18,
+        "genders": "m",
+        "website": "https://www.breadoflifemission.org/"
+    },
+    {
+        "name": "St. Martin De Porres",
+        "minage": 50,
+        "genders": "m",
+        "website": "https://ccsww.org/get-help/shelter-homeless-services/st-martin-de-porres-shelter/"
+    },
+    {
+        "name": "DESC – Main Shelter",
+        "minage": 18,
+        "genders": "mf",
+        "website": "https://www.desc.org/what-we-do/survival-services/main-shelter/"
+    },
+    {
+        "name": "Drexel House",
+        "minage": 18,
+        "genders": "m",
+        "website": "https://ccsww.org/get-help/shelter-homeless-services/drexel-house"
+    },
+    {
+        "name": "Hammond House",
+        "minage": 18,
+        "genders": "f",
+        "website": "https://www.compasshousingalliance.org/what-we-do-top/emergency-shelter/hammond-house/"
+    },
+    {
+        "name": "Mary’s Place",
+        "minage": 18,
+        "genders": "f",
+        "website": "https://www.marysplaceseattle.org/shelters"
+    },
+    {
+        "name": "Noel House Programs",
+        "minage": 18,
+        "genders": "f",
+        "website": "https://ccsww.org/get-help/shelter-homeless-services/noel-house-programs/"
+    },
+    {
+        "name": "Roots Young Adult Shelter",
+        "minage": 18,
+        "genders": "mf",
+        "website": "http://www.rootsinfo.org/"
+    },
+    {
+        "name": "Union Gospel Shelter",
+        "minage": 18,
+        "genders": "m",
+        "website": "https://www.ugm.org/"
+    }
+]
