@@ -6,11 +6,17 @@ function genderMChecked() {
     return isChecked;
 }
 
-function userAge() {
+function getUserAge() {
  console.log('this doesn\'t do anything yet');
 }
 
 function searchRequest() {
+    if (genderMChecked()){
+        userGender = 'm';
+    } else {
+        userGender = 'f';
+    };
+    let userAge = getUserAge();
     console.log('search ran');
 }
 
