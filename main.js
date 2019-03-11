@@ -14,4 +14,6 @@ function searchRequest() {
     console.log('search ran');
 }
 
-document.getElementById("search").addEventListener("click", searchRequest);
+window.onload=function(){
+document.getElementById("searchbtn").addEventListener("click", searchRequest());
+}
