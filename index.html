@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+    <!-- Heading includes title, meta information and links for css and js-->
     <meta charset="utf-8">
     <title>Seattle Shelter Search</title>
     <meta name="description" content="A directory of Seattle homeless shelters">
@@ -13,21 +14,27 @@
 </head>
 
 <body>
+    <!-- Main title-->
     <h1 class='maintitle green'>Search Criteria</h1>
+    <!-- Gives users instructions-->
     <h4 class='instruction coral'>Enter your preferences so we can help you find the
         best possible shelter in Seattle for you.
     </h4>
+    <!-- Gets gender information about user-->
     <p class='question'>Are you male or female?</p>
     <form class='centerize' action="" name='genderselector'>
         <input type="radio" name="gender" value="m" id='genderm'> Male<br>
         <input type="radio" name="gender" value="f" id='genderf'> Female<br>
     </form>
+    <!-- Asks user question, gets numeric value within ranges-->
     <p class='question'>How old are you?</p>
     <div class='centerize'>Age (between 12 and 100): <input type="number" id="ageselector" name="age" min="12" max="100"></div>
+    <!-- Gives user instructions-->
     <h4 class='instruction blue'>Once you've filled out the fields above, hit the 'Find Shelter' button.</h4>
+    <!-- Search buttton-->
     <button class="searchbutton" id="searchbtn">Find Shelter</button>
 </body>
-<footer class='smallprint green'>*This site is a work in progress by <em>Travis Bassett.</em> The information 
-provided here is not updated and is for demonstration purposes only.*</footer>
+<footer class='smallprint green'>*This site is a work in progress by <em>Travis Bassett.</em> The information
+    provided here is not updated and is for demonstration purposes only.*</footer>
 
 </html>

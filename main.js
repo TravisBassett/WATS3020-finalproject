@@ -6,12 +6,14 @@ function genderMChecked() {
     return isChecked;
 }
 
+// retries users age
 function getUserAge() {
- console.log('this doesn\'t do anything yet');
+    console.log('this doesn\'t do anything yet');
 }
 
+// the main search funciton, retrieves user gender and age and determines matching shelter
 function searchRequest() {
-    if (genderMChecked()){
+    if (genderMChecked()) {
         userGender = 'm';
     } else {
         userGender = 'f';
@@ -20,6 +22,8 @@ function searchRequest() {
     console.log('search ran');
 }
 
-window.onload=function(){
-document.getElementById("searchbtn").addEventListener("click", searchRequest());
+// applies event listener on search button after DOM is fully loaded to avoid console
+// error
+window.onload = function () {
+    document.getElementById("searchbtn").addEventListener("click", searchRequest());
 }
