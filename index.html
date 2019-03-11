@@ -4,26 +4,27 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Shelter Search</title>
+    <title>Seattle Shelter Search</title>
     <meta name="description" content="A directory of Seattle homeless shelters">
     <meta name="author" content="Travis Bassett">
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <h1>Search Criteria</h1>
-    <h4>In the following fields, enter your preferences and details so we can help you find the best possible shelter
-        for you.
+    <h1 class='maintitle green'>Search Criteria</h1>
+    <h4 class='instruction coral'>Enter your preferences so we can help you find the
+        best possible shelter in Seattle for you.
     </h4>
-    <p>Are you male or female?</p>
-    <form action="">
+    <p class='question'>Are you male or female?</p>
+    <form class='centerize' action="">
         <input type="radio" name="gender" value="male"> Male<br>
         <input type="radio" name="gender" value="female"> Female<br>
     </form>
-    <p>How old are you?</p>
-    Quantity (between 12 and 100): <input type="number" name="quantity" min="1" max="5">
-    <h4>Once you've filled out the fields above, hit the 'Find Shelter' button.</h4>
+    <p class='question'>How old are you?</p>
+    <div class='centerize'>Age (between 12 and 100): <input type="number" name="quantity" min="12" max="100"></div>
+    <h4 class='instruction blue'>Once you've filled out the fields above, hit the 'Find Shelter' button.</h4>
     <button class="searchbutton">Find Shelter</button>
 </body>
-<footer>This site is a work in progress by Travis Bassett</footer>
+<footer class='smallprint green'>*This site is a work in progress by <em>Travis Bassett*</em></footer>
+
 </html>

@@ -1,0 +1,60 @@
+body {
+    margin: 3rem auto;
+    width: 90%;
+    padding: 2rem;
+    border: 2px dashed gray;
+}
+
+.maintitle {
+    font-family: Helvetica;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.instruction {
+    font-family: Helvetica;
+    font-size: 22px;
+    font-weight: bold;
+    color: White;
+    text-align: center
+}
+
+.question {
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    margin-top: 10px;
+    font-family: Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.searchbutton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centerize {
+    text-align: center;
+}
+
+.green {
+    background-color: mediumspringgreen;
+}
+
+.coral {
+    background-color: lightcoral;
+}
+
+.blue {
+    background-color: skyblue;
+}
