@@ -8,6 +8,8 @@
     <meta name="description" content="A directory of Seattle homeless shelters">
     <meta name="author" content="Travis Bassett">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="main.js"></script>
+
 </head>
 
 <body>
@@ -16,16 +18,16 @@
         best possible shelter in Seattle for you.
     </h4>
     <p class='question'>Are you male or female?</p>
-    <form class='centerize' action="">
-        <input type="radio" name="gender" value="male"> Male<br>
-        <input type="radio" name="gender" value="female"> Female<br>
+    <form class='centerize' action="" name='genderselector'>
+        <input type="radio" name="gender" value="m" id='genderm'> Male<br>
+        <input type="radio" name="gender" value="f" id='genderf'> Female<br>
     </form>
     <p class='question'>How old are you?</p>
-    <div class='centerize'>Age (between 12 and 100): <input type="number" name="quantity" min="12" max="100"></div>
+    <div class='centerize'>Age (between 12 and 100): <input type="number" id="ageselector" name="age" min="12" max="100"></div>
     <h4 class='instruction blue'>Once you've filled out the fields above, hit the 'Find Shelter' button.</h4>
-    <button class="searchbutton">Find Shelter</button>
+    <button class="searchbutton" id="search">Find Shelter</button>
 </body>
 <footer class='smallprint green'>*This site is a work in progress by <em>Travis Bassett.</em> The information 
-provided here is not updated and is for demonstration/development purposes only.*</footer>
+provided here is not updated and is for demonstration purposes only.*</footer>
 
 </html>

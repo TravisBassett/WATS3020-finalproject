@@ -1,15 +1,8 @@
-[
-    {
+[{
         "name": "Bread of Life Mission",
         "minage": 18,
         "genders": "m",
         "website": "https://www.breadoflifemission.org/"
-    },
-    {
-        "name": "St. Martin De Porres",
-        "minage": 50,
-        "genders": "m",
-        "website": "https://ccsww.org/get-help/shelter-homeless-services/st-martin-de-porres-shelter/"
     },
     {
         "name": "DESC – Main Shelter",
@@ -46,6 +39,12 @@
         "minage": 18,
         "genders": "mf",
         "website": "http://www.rootsinfo.org/"
+    },
+    {
+        "name": "St. Martin De Porres",
+        "minage": 50,
+        "genders": "m",
+        "website": "https://ccsww.org/get-help/shelter-homeless-services/st-martin-de-porres-shelter/"
     },
     {
         "name": "Union Gospel Shelter",
