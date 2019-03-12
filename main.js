@@ -1,6 +1,7 @@
 // declares universal variables for user's age and gender
 let userAge;
 let userGender;
+var section = document.getElementById("section");
 
 // JSON for unsorter shelter index, maybe load it from GitHub later
 var unsortedShelters = [{
@@ -79,6 +80,30 @@ function getUserAge() {
     return foundAge;
 }
 
+//for testing
+let neededShelter = 1;
+
+// creates the HTML element for each shelter search result
+function showShelter(neededShelter){
+    var myArticle = document.createElement('article');
+    var myH2 = document.createElement('h2');
+    var myPara1 = document.createElement('p');
+    var myPara2 = document.createElement('p');
+    var myPara3 = document.createElement('p');
+    
+    myH2.textContent = unsortedShelters[neededShelter]["name"];
+    myPara1.textContent = 'Minimum Age: ' + unsortedShelters[neededShelter]["minage"];
+    myPara2.textContent = 'Genders Served: ' + unsortedShelters[neededShelter]["genders"];
+    myPara3.textContent = 'URL:' + unsortedShelters[neededShelter]["website"];
+
+    myArticle.appendChild(myH2);
+    myArticle.appendChild(myPara1);
+    myArticle.appendChild(myPara2);
+    myArticle.appendChild(myPara3);
+
+    section.appendChild(myArticle);
+}
+
 // the main search funciton, retrieves user gender and age and determines matching shelter
 function searchRequest() {
     userAge = getUserAge();
@@ -91,4 +116,6 @@ function searchRequest() {
 // error
 window.onload = function () {
     document.getElementById("searchbtn").addEventListener("click", searchRequest);
+    // for testing
+    showShelter(neededShelter);
 }
