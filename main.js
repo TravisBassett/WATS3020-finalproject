@@ -84,6 +84,7 @@
             return foundAge;
         }
 
+        /*
         // validates input for gender on index.html form
         function validateGender() {
             var x = document.forms["userdataselector"]["gender"].value;
@@ -95,6 +96,22 @@
 
         // validates input for age on index.html form
         function validateAge() {
+            var y = document.forms["userdataselector"]["age"].value;
+            if (y == "") {
+                alert("You must select an Age!");
+                return false;
+            }
+        } 
+        */
+
+        // validate inputs for gender and age on index.html form
+        function validateInput() {
+            var x = document.forms["userdataselector"]["gender"].value;
+            if (x == "") {
+                alert("You must select a gender!");
+                return false;
+            }
+
             var y = document.forms["userdataselector"]["age"].value;
             if (y == "") {
                 alert("You must select an Age!");
@@ -171,16 +188,11 @@
         // then assigns returned value of sortShelters() to sortedShelters array, which is then displayed 
         // in the DOM by showShelter();
         function searchRequest() {
-            do {
-                userAge = getUserAge();
-            } while (!validateAge());
-
-            do {
-                userGender = getUserGender();
-            } while (!validateGender());
+            userAge = getUserAge();
+            userGender = getUserGender();
 
             sortedShelters = sortShelters();
-            console.log(sortedShelters);
+            // console.log(sortedShelters);
             showShelter();
         }
 
