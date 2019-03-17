@@ -94,8 +94,8 @@
 
                 myH2.textContent = sortedShelters[neededShelter].name;
                 myPara1.textContent = 'Minimum Age: ' + sortedShelters[neededShelter].minage;
-                myPara2.textContent = 'Genders Served: ' + sortedShelters[neededShelter].genders;
-                myPara3.textContent = 'URL: ' + sortedShelters[neededShelter].website;
+                myPara2.textContent = 'Genders Served: ' + unsortedShelters[neededShelter].genders;
+                myPara3.textContent = 'URL: ' + unsortedShelters[neededShelter].website;
 
                 myArticle.appendChild(myH2);
                 myArticle.appendChild(myPara1);
@@ -113,15 +113,15 @@
             let perfectMatch = [];
             let partialMatch = [];
             let noMatch = [];
-            for (shelter in unsortedShelters) {
-                if (unsortedShelters[shelter].minage <= userAge &&
-                    unsortedShelters[shelter].genders === userGender) {
-                    perfectMatch.push(shelter);
-                } else if (unsortedShelters[shelter].minage <= userAge ||
-                    unsortedShelters[shelter].genders === userGender) {
-                    partialMatch.push(shelter);
+            for (let i = 0; i< unsortedShelters.length; i++){
+                if (unsortedShelters[i].minage <= userAge &&
+                    unsortedShelters[i].genders === userGender) {
+                    perfectMatch.push(unsortedShelters[i]);
+                } else if (unsortedShelters[i].minage <= userAge ||
+                    unsortedShelters[i].genders === userGender) {
+                    partialMatch.push(unsortedShelters[i]);
                 } else {
-                    noMatch.push(shelter);
+                    noMatch.push(unsortedShelters[i]);
                 }
             }
             // console.log(perfectMatch);
@@ -143,6 +143,7 @@
 
         // applies event listener to submit button 
         document.addEventListener('submit', function (e) {
+            e.preventDefault();
             searchRequest();
         });
     });
