@@ -1,7 +1,8 @@
     // applies JS after DOM is fully loaded to avoid errors
     document.addEventListener("DOMContentLoaded", function (event) {
 
-        // declares universal variables for user's age and gender
+        // declares universal variables for user's age and gender and an array to
+        // store sortedShelters
         let userAge;
         let userGender;
         let sortedShelters = [];
@@ -86,22 +87,28 @@
         // creates the HTML element for each shelter search result
         function showShelter() {
             for (neededShelter in sortedShelters) {
+                // creates elements to be used to create a new element for each shelter
+                // iterated through
                 var myArticle = document.createElement('article');
                 var myH2 = document.createElement('h2');
                 var myPara1 = document.createElement('p');
                 var myPara2 = document.createElement('p');
                 var myPara3 = document.createElement('p');
 
+                // assigns values to each elment from the current shelter being
+                // iterated through
                 myH2.textContent = sortedShelters[neededShelter].name;
                 myPara1.textContent = 'Minimum Age: ' + sortedShelters[neededShelter].minage;
-                myPara2.textContent = 'Genders Served: ' + unsortedShelters[neededShelter].genders;
-                myPara3.textContent = 'URL: ' + unsortedShelters[neededShelter].website;
+                myPara2.textContent = 'Genders Served: ' + sortedShelters[neededShelter].genders;
+                myPara3.textContent = 'URL: ' + sortedShelters[neededShelter].website;
 
+                // appends new text elements to article element
                 myArticle.appendChild(myH2);
                 myArticle.appendChild(myPara1);
                 myArticle.appendChild(myPara2);
                 myArticle.appendChild(myPara3);
 
+                // inserts article element into the DOM
                 document.getElementById("searchResults").appendChild(myArticle);
             }
         }
@@ -109,44 +116,52 @@
         // this function sorts the shelters according to the users preferences and sends the result
         // into a new array
         function sortShelters() {
+            // declares arrays to be used within function, tmpShelter array to be passed out of function
             let tmpShelterArray = [];
             let perfectMatch = [];
             let partialMatch = [];
             let noMatch = [];
-            for (let i = 0; i< unsortedShelters.length; i++){
+            // iterates through every shelter in the unsortedShelters array
+            for (let i = 0; i < unsortedShelters.length; i++) {
+                // determines if the shelter is a perfect match and adds to relevant array
                 if (unsortedShelters[i].minage <= userAge &&
-                    unsortedShelters[i].genders === userGender || 
-                    unsortedShelters[i].genders === 'mf' ) {
+                    unsortedShelters[i].genders === userGender ||
+                    unsortedShelters[i].genders === 'mf') {
                     perfectMatch.push(unsortedShelters[i]);
+                    // determines if the shelter is a partial match and adds to relevant array
                 } else if (unsortedShelters[i].minage <= userAge ||
-                    unsortedShelters[i].genders === userGender || 
+                    unsortedShelters[i].genders === userGender ||
                     unsortedShelters[i].genders === 'mf') {
                     partialMatch.push(unsortedShelters[i]);
+                // otherwise the shelter is a none match and gets added to relevant array
                 } else {
                     noMatch.push(unsortedShelters[i]);
                 }
             }
-            // console.log(perfectMatch);
-            // console.log(partialMatch);
-            // console.log(noMatch);
+
+            // starts building tmpShelterArray by adding perfect matches first
             tmpShelterArray = perfectMatch;
-            console.log(tmpShelterArray);
+            // keeps building tmpShelterArray by adding imperfect matches second
             tmpShelterArray = tmpShelterArray.concat(partialMatch);
-            console.log(tmpShelterArray);
+            // finishes building tmpShelterArray by adding non-matches last in line
             tmpShelterArray = tmpShelterArray.concat(noMatch);
-            console.log(tmpShelterArray);
+
             return tmpShelterArray;
         }
 
         // the main search function, retrieves user gender and age and determines matching shelter
+        // then assigns returned value of sortShelters() to sortedShelters array, which is then displayed 
+        // in the DOM by showShelter();
         function searchRequest() {
             userAge = getUserAge();
             userGender = getUserGender();
             sortedShelters = sortShelters();
+            console.log(sortedShelters);
             showShelter();
         }
 
-        // applies event listener to submit button 
+        // applies event listener to submit button, preventsDefault() auto-refresh since not passing data
+        // to a server, and calls search request 
         document.addEventListener('submit', function (e) {
             e.preventDefault();
             searchRequest();
