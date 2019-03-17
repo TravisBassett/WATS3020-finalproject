@@ -27,18 +27,22 @@
     <form class='centerize' action="" name='genderselector'>
         <input type="radio" name="gender" value="m" id='genderm'> Male<br>
         <input type="radio" name="gender" value="f" id='genderf'> Female<br>
+        <!-- Asks user question, gets numeric value within ranges-->
+        <p class='question'>How old are you?</p>
+        <div class='centerize'>Age (between 12 and 100): <input type="number" id="ageselector" name="age" min="12" max="100"></div>
+        <!-- Gives user instructions-->
+        <h4 class='instruction blue'>Once you've filled out the fields above, hit the 'Find Shelter' button.</h4>
+        <!-- Search buttton-->
+        <button class="searchbutton" type="submit">Find Shelter</button>
+        <!-- <section> searchResults, the future home of appended search results-->
     </form>
-    <!-- Asks user question, gets numeric value within ranges-->
-    <p class='question'>How old are you?</p>
-    <div class='centerize'>Age (between 12 and 100): <input type="number" id="ageselector" name="age" min="12" max="100"></div>
-    <!-- Gives user instructions-->
-    <h4 class='instruction blue'>Once you've filled out the fields above, hit the 'Find Shelter' button.</h4>
-    <!-- Search buttton-->
-    <button class = "searchbutton" type="submit">Find Shelter</button>
-    <!-- <section>, the future home of appended search results-->
-    <section></section>
+
+    <section id="searchResults">
+
+    </section>
 </body>
-<footer class='smallprint green'>*This site is a work in progress by <a href="https://github.com/TravisBassett">Travis Bassett.</a> The information
+<footer class='smallprint green'>*This site is a work in progress by <a href="https://github.com/TravisBassett">Travis
+        Bassett.</a> The information
     provided here is not updated and is for demonstration purposes only.*</footer>
 
 </html>

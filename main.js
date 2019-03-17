@@ -4,9 +4,9 @@
         // declares universal variables for user's age and gender
         let userAge;
         let userGender;
-        var section = document.getElementById("section");
+        let sortedShelters = [];
 
-        // unsorter shelted index, maybe load it from GitHub as a JSON object later
+        // unsorted shelted index, maybe load it from GitHub as a JSON object later
         const unsortedShelters = [{
                 name: "Bread of Life Mission",
                 minage: 18,
@@ -83,44 +83,66 @@
             return foundAge;
         }
 
-        //for testing
-        let neededShelter = 1;
-
         // creates the HTML element for each shelter search result
-        function showShelter(neededShelter) {
-            var myArticle = document.createElement('article');
-            var myH2 = document.createElement('h2');
-            var myPara1 = document.createElement('p');
-            var myPara2 = document.createElement('p');
-            var myPara3 = document.createElement('p');
+        function showShelter() {
+            for (neededShelter in sortedShelters) {
+                var myArticle = document.createElement('article');
+                var myH2 = document.createElement('h2');
+                var myPara1 = document.createElement('p');
+                var myPara2 = document.createElement('p');
+                var myPara3 = document.createElement('p');
 
-            myH2.textContent = unsortedShelters[neededShelter].name;
-            myPara1.textContent = 'Minimum Age: ' + unsortedShelters[neededShelter].minage;
-            myPara2.textContent = 'Genders Served: ' + unsortedShelters[neededShelter].genders;
-            myPara3.textContent = 'URL:' + unsortedShelters[neededShelter].website;
+                myH2.textContent = sortedShelters[neededShelter].name;
+                myPara1.textContent = 'Minimum Age: ' + sortedShelters[neededShelter].minage;
+                myPara2.textContent = 'Genders Served: ' + sortedShelters[neededShelter].genders;
+                myPara3.textContent = 'URL: ' + sortedShelters[neededShelter].website;
 
-            myArticle.appendChild(myH2);
-            myArticle.appendChild(myPara1);
-            myArticle.appendChild(myPara2);
-            myArticle.appendChild(myPara3);
+                myArticle.appendChild(myH2);
+                myArticle.appendChild(myPara1);
+                myArticle.appendChild(myPara2);
+                myArticle.appendChild(myPara3);
 
-            section.appendChild(myArticle);
+                document.getElementById("searchResults").appendChild(myArticle);
+            }
+        }
+
+        // this function sorts the shelters according to the users preferences and sends the result
+        // into a new array
+        function sortShelters() {
+            let tmpShelterArray = [];
+            let perfectMatch = [];
+            let partialMatch = [];
+            let noMatch = [];
+            for (shelter in unsortedShelters) {
+                if (unsortedShelters[shelter].minage <= userAge &&
+                    unsortedShelters[shelter].genders === userGender) {
+                    perfectMatch.push(shelter);
+                } else if (unsortedShelters[shelter].minage <= userAge ||
+                    unsortedShelters[shelter].genders === userGender) {
+                    partialMatch.push(shelter);
+                } else {
+                    noMatch.push(shelter);
+                }
+            }
+            // console.log(perfectMatch);
+            // console.log(partialMatch);
+            // console.log(noMatch);
+            tmpShelterArray = perfectMatch.concat(partialMatch.concat(noMatch));
+            console.log(tmpShelterArray);
+            return tmpShelterArray;
         }
 
         // the main search function, retrieves user gender and age and determines matching shelter
         function searchRequest() {
             userAge = getUserAge();
             userGender = getUserGender();
-            // for testing
-            console.log(userAge, userGender);
+            //console.log(userAge, userGender);
+            sortedShelters = sortShelters();
+            showShelter();
         }
-
 
         // applies event listener to submit button 
         document.addEventListener('submit', function (e) {
             searchRequest();
         });
-
-        // for testing
-        showShelter(neededShelter);
     });
