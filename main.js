@@ -115,16 +115,26 @@
             let noMatch = [];
             for (let i = 0; i< unsortedShelters.length; i++){
                 if (unsortedShelters[i].minage <= userAge &&
-                    unsortedShelters[i].genders === userGender) {
+                    unsortedShelters[i].genders === userGender || 
+                    unsortedShelters[i].genders === 'mf' ) {
                     perfectMatch.push(unsortedShelters[i]);
                 } else if (unsortedShelters[i].minage <= userAge ||
-                    unsortedShelters[i].genders === userGender) {
+                    unsortedShelters[i].genders === userGender || 
+                    unsortedShelters[i].genders === 'mf') {
                     partialMatch.push(unsortedShelters[i]);
                 } else {
                     noMatch.push(unsortedShelters[i]);
                 }
             }
-            tmpShelterArray = perfectMatch.concat(partialMatch.concat(noMatch));
+            // console.log(perfectMatch);
+            // console.log(partialMatch);
+            // console.log(noMatch);
+            tmpShelterArray = perfectMatch;
+            console.log(tmpShelterArray);
+            tmpShelterArray = tmpShelterArray.concat(partialMatch);
+            console.log(tmpShelterArray);
+            tmpShelterArray = tmpShelterArray.concat(noMatch);
+            console.log(tmpShelterArray);
             return tmpShelterArray;
         }
 
