@@ -93,20 +93,22 @@
                 var myH2 = document.createElement('h2');
                 var myPara1 = document.createElement('p');
                 var myPara2 = document.createElement('p');
-                var myPara3 = document.createElement('p');
+                var myLink = document.createElement('a');
 
                 // assigns values to each elment from the current shelter being
                 // iterated through
                 myH2.textContent = sortedShelters[neededShelter].name;
                 myPara1.textContent = 'Minimum Age: ' + sortedShelters[neededShelter].minage;
                 myPara2.textContent = 'Genders Served: ' + sortedShelters[neededShelter].genders;
-                myPara3.textContent = 'URL: ' + sortedShelters[neededShelter].website;
+                myLink.textContent = 'Link to ' + sortedShelters[neededShelter].name;
+                myLink.title = 'Link to ' + sortedShelters[neededShelter].name;
+                myLink.href = sortedShelters[neededShelter].website;
 
                 // appends new text elements to article element
                 myArticle.appendChild(myH2);
                 myArticle.appendChild(myPara1);
                 myArticle.appendChild(myPara2);
-                myArticle.appendChild(myPara3);
+                myArticle.appendChild(myLink);
 
                 // inserts article element into the DOM
                 document.getElementById("searchResults").appendChild(myArticle);
