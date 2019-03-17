@@ -124,11 +124,7 @@
                     noMatch.push(unsortedShelters[i]);
                 }
             }
-            // console.log(perfectMatch);
-            // console.log(partialMatch);
-            // console.log(noMatch);
             tmpShelterArray = perfectMatch.concat(partialMatch.concat(noMatch));
-            console.log(tmpShelterArray);
             return tmpShelterArray;
         }
 
@@ -136,7 +132,6 @@
         function searchRequest() {
             userAge = getUserAge();
             userGender = getUserGender();
-            //console.log(userAge, userGender);
             sortedShelters = sortShelters();
             showShelter();
         }
