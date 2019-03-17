@@ -179,7 +179,21 @@
                 return false;
             } else {
                 e.preventDefault();
+                
+                // hides presearch div elements one valid input is entered
+                var h = document.getElementById('presearch');
+                h.style.display = 'none';
+
+                // displays postsearch div elements one valid input is entered
+                var i = document.getElementById('postsearch');
+                i.style.display = 'block';
+
                 searchRequest();
             }
         });
+
+        // hides postsearch div elements on load
+        var z = document.getElementById('postsearch');
+        z.style.display = 'none';
+
     });
