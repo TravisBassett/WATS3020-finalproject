@@ -84,41 +84,6 @@
             return foundAge;
         }
 
-        /*
-        // validates input for gender on index.html form
-        function validateGender() {
-            var x = document.forms["userdataselector"]["gender"].value;
-            if (x == "") {
-                alert("You must select a gender!");
-                return false;
-            }
-        }
-
-        // validates input for age on index.html form
-        function validateAge() {
-            var y = document.forms["userdataselector"]["age"].value;
-            if (y == "") {
-                alert("You must select an Age!");
-                return false;
-            }
-        } 
-        */
-
-        // validate inputs for gender and age on index.html form
-        function validateInput() {
-            var x = document.forms["userdataselector"]["gender"].value;
-            if (x == "") {
-                alert("You must select a gender!");
-                return false;
-            }
-
-            var y = document.forms["userdataselector"]["age"].value;
-            if (y == "") {
-                alert("You must select an Age!");
-                return false;
-            }
-        }
-
         // creates the HTML element for each shelter search result
         function showShelter() {
             for (neededShelter in sortedShelters) {
@@ -199,7 +164,20 @@
         // applies event listener to submit button, preventsDefault() auto-refresh since not passing data
         // to a server, and calls search request 
         document.addEventListener('submit', function (e) {
-            e.preventDefault();
-            searchRequest();
+            
+            // validates input, starts searchRequest once input is validated
+            var x = document.forms["userdataselector"]["gender"].value;
+            var y = document.forms["userdataselector"]["age"].value;
+
+            if (x == "") {
+                alert("You need to select a gender and age!");
+                return false;
+            } else if (y == "") {
+                alert("You need to select a gender and age!");
+                return false;
+            } else {
+                e.preventDefault();
+                searchRequest();
+            }
         });
     });
